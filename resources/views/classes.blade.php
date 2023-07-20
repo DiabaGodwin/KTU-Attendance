@@ -1,0 +1,33 @@
+<x-layout>
+    <div class="classes-page">
+        <div class="side-logo">
+                <div class="toggle-btn" onclick="toggleSidebar()">
+                ☰
+                </div>
+                <div class="company-name-main">
+                    <h3>ATTENDEE</h3>
+                </div>
+        </div>
+
+        <x-sidebar></x-sidebar>
+        <x-profile></x-profile>
+        <div class="">
+            <hr class="hr">
+        </div>
+            <div class="lesson-section">
+            @foreach($lessons as $lesson)
+                    <div class="container-flex p-4 lessons">
+                        <div class="lesson lesson-border ">
+                            <div class="lesson-name">
+                                <h4>{{$lesson->courseName}}</h4>
+                            </div>
+                            <div class="">
+                                <a class="lesson-link" href="/qr-interface">Start</a>
+                            </div>
+                        </div>
+                    </div>
+            @endforeach
+            </div>
+    </div>
+
+</x-layout>
