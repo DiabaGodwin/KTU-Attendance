@@ -8,9 +8,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="{{asset('css/index.css')}}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-{{--        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">--}}
 
-    <!-- Styles -->
     </head>
     <body>
         <div class="landing">
@@ -21,6 +19,10 @@
                     </div>
                 </div>
                 <div class="right">
+                    <div class="welcome-message">
+                        <h2>SCAN & ENTER</h2>
+                        <h5>Tired of typing usernames and passwords? Embrace the future of login with our all-new QR Code system! Simply scan the code, get verified, and you’re in!</h5>
+                    </div>
                     @if (Route::has('login'))
                             @auth
                                 <a href="{{ url('/dashboard') }}" class="">Dashboard</a>

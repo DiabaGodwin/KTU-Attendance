@@ -45,10 +45,8 @@ body{
     background-color: var(--primary-200);
     border-radius: 20px;
     position: relative;
-    /*border: 2px solid red;*/
 }
 .left{
-    /*border: 2px solid red;*/
     margin-right: 10px;
     width: 100%;
     height: 100%;
@@ -68,13 +66,12 @@ body{
 .sign-in{
     display: flex;
     justify-content: space-between;
-    bottom: 15px;
+    bottom: 100px;
     position: absolute;
 }
-.login{
-    margin-bottom: 30px;
-}
+
 .sign-up{
+    position: absolute;
     width: 200px;
 }
 
@@ -98,10 +95,18 @@ body{
     padding: 6px 55px;
     background-color: var(--primary-color);
     border-radius: 50px;
+    margin-right: 10px;
 }
 
 .register:hover{
     color:white;
+}
+
+.welcome-message{
+    width: 300px;
+    position: absolute;
+    top: 100px;
+    right: 50px;
 }
 
 
