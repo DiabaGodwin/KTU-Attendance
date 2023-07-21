@@ -1,0 +1,25 @@
+:root{
+    --body-font: 'Roboto', sans-serif;
+}
+
+/*form{*/
+/*    background-color: white;*/
+/*}*/
+tr{
+    background-color: white;
+}
+.list-input{
+    border: none;
+    outline: none;
+    background: none;
+
+}
+.list-container{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    /* width: 1000px; */
+    /* background-color: #c1c2f5; */
+}
+.one,.five{
+    width: 10px;
+}
