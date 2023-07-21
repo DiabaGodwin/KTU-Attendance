@@ -1,0 +1,25 @@
+{
+  "hash": "ea937237",
+  "browserHash": "d19b3422",
+  "optimized": {
+    "alpinejs": {
+      "src": "../../node_modules/alpinejs/dist/module.esm.js",
+      "file": "alpinejs.js",
+      "fileHash": "0bb67823",
+      "needsInterop": false
+    },
+    "@alpinejs/focus": {
+      "src": "../../node_modules/@alpinejs/focus/dist/module.esm.js",
+      "file": "@alpinejs_focus.js",
+      "fileHash": "4ad4949d",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "357195b5",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}
