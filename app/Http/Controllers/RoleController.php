@@ -10,11 +10,11 @@ class RoleController extends Controller
 {
     public function roles(){
         $role= Auth::user()->role;
-        if($role=='1'){
-            return view('/personal-info');
+        if($role =='1'){
+            return view('personal-info');
         }
         else{
-            return view('/analytics');
+            return view('analytics');
         }
 
     }

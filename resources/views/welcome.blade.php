@@ -21,7 +21,7 @@
                 <div class="right">
                     <div class="welcome-message">
                         <h2>SCAN & ENTER</h2>
-                        <h5>Tired of typing usernames and passwords? Embrace the future of login with our all-new QR Code system! Simply scan the code, get verified, and you’re in!</h5>
+                        <h3>Tired of typing usernames and passwords? Embrace the future of login with our all-new QR Code system! Simply scan the code, get verified, and you’re in!</h3>
                     </div>
                     @if (Route::has('login'))
                             @auth
