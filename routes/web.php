@@ -57,6 +57,9 @@ Route::middleware([
     Route::get('/chart', function (){
         return view('webchart');
     });
+//    Route::get('/info', function(){
+//        return view('personal-info');
+//    });
     Route::get('/info',[RoleController::class,'roles']);
 
 });

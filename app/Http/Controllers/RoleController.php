@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class RoleController extends Controller
 {
     public function roles(){
-        $role= Auth::user()->role;
+        $role= Auth::User()->role;
         if($role =='1'){
-            return view('personal-info');
+            return view('dashboard');
         }
         else{
             return view('analytics');
