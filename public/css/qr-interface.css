@@ -15,9 +15,7 @@
     height: 600px;
     margin: auto;
     position: relative;
-    margin-top: 1rem;
-    /* border:2px solid red; */
-    
+
 }
 .qr{
     display: flex;

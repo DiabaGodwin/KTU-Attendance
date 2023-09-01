@@ -13,7 +13,9 @@
 
     <x-sidebar></x-sidebar>
     <h3 class="class-head">Home</h3>
-    <x-profile></x-profile>
+        <x-profile
+            :user-name="auth()->user()->name"
+        ></x-profile>
     <!-- <div class="content"> -->
         <hr>
     <div class="active-classes">

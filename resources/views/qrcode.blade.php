@@ -11,6 +11,5 @@
         {!! QrCode::size(300)->generate('RemoteStack') !!}
     </div> -->
 
-    
 </body>
 </html>

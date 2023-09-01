@@ -4,6 +4,6 @@
             <img class="dp-image image-border" src="{{asset('images/cartoon.jpg')}}" alt="">
         </div>
         <div class="name-section">
-            <h4 class="name">Prof. Diaba Godwin</h4>
+            <h4 class="name">{{ $userName }}</h4>
         </div>
 </div>

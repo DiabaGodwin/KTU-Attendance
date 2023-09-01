@@ -9,8 +9,9 @@
             </div>
         </div>
     <x-sidebar></x-sidebar>
-    <x-profile></x-profile>
-    <hr>
+        <x-profile
+            :user-name="auth()->user()->name"
+        ></x-profile>    <hr>
         <div class="title">
             <h2>Dashboard</h2>
         </div>
@@ -82,7 +83,6 @@
 
         </div>
         <div class="" id="myChart"></div>
-
     </div>
     </div>
 </x-layout>

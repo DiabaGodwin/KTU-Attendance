@@ -10,7 +10,9 @@
             </div>
         </div>
         <x-sidebar></x-sidebar>
-        <x-profile></x-profile>
+        <x-profile
+            :user-name="auth()->user()->name"
+        ></x-profile>
         <div class="sidebar-hr">
             <hr class="hr">
         </div>

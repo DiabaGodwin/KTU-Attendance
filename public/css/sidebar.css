@@ -112,19 +112,12 @@
     }
     .menu-items:hover{
         background-color: var(--bg-200);
-        /* background-color: white; */
-        /* color: black; */
     }
 
     .icon{
         height: 18px;
         margin-right: 5px;
     }
-
-    /* .outline{
-        border: 2px solid red;
-        width: 500px;
-    } */
 
 
 

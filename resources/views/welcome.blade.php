@@ -11,7 +11,11 @@
 
     </head>
     <body>
-        <div class="landing">
+        <div class="landing"
+             style="
+             background-image: url('{{ asset('images/bg-image.jpg')}}');
+        "
+        >
             <div class="landing-content">
                 <div class="left">
                     <div class="">

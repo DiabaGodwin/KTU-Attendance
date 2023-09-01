@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="classes-page">
+    <div class="main-container">
         <div class="side-logo">
                 <div class="toggle-btn" onclick="toggleSidebar()">
                 ☰
@@ -10,8 +10,9 @@
         </div>
 
         <x-sidebar></x-sidebar>
-        <x-profile></x-profile>
-        <div class="">
+        <x-profile
+            :user-name="auth()->user()->name"
+        ></x-profile>        <div class="">
             <hr class="hr">
         </div>
             <div class="lesson-section">
