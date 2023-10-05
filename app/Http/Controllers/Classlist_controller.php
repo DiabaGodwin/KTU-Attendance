@@ -9,9 +9,7 @@ class Classlist_controller extends Controller
 {
     //
     public function showList(){
-
         $lists = Classlist::all();
         return view('/classlist', compact('lists'));
-
     }
 }

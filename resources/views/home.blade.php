@@ -11,7 +11,9 @@
             </div>
         </div>
 
-    <x-sidebar></x-sidebar>
+        <x-sidebar
+            :role="auth()->user()->role">
+        </x-sidebar>
     <h3 class="class-head">Home</h3>
         <x-profile
             :user-name="auth()->user()->name"

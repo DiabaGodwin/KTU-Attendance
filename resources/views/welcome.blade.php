@@ -11,38 +11,39 @@
 
     </head>
     <body>
-        <div class="landing"
+        <div class="img"
              style="
              background-image: url('{{ asset('images/bg-image.jpg')}}');
         "
         >
-            <div class="landing-content">
-                <div class="left">
-                    <div class="">
-                        <img class="left-img" src="{{ asset('images/landing-bg.jpg')}}" alt="">
-                    </div>
-                </div>
+            <div class="landing-content center">
                 <div class="right">
-                    <div class="welcome-message">
-                        <h2>SCAN & ENTER</h2>
-                        <h3>Tired of typing usernames and passwords? Embrace the future of login with our all-new QR Code system! Simply scan the code, get verified, and you’re in!</h3>
+                    <div class="welcome-message title">
+                        ATTENDIFY
                     </div>
-                    @if (Route::has('login'))
+                    <div class="sub_title">
+                        Tired of typing usernames and passwords?<br> Embrace the future of login with our all-new QR Code system! Simply scan the code, get verified, and you’re in!
+                    </div>
+                    <div class="btns">
+                        @if (Route::has('login'))
                             @auth
-                                <a href="{{ url('/dashboard') }}" class="">Dashboard</a>
+                                <button>
+                                    <a href="{{ url('/home') }}" class="">Home</a>
+                                </button>
                             @else
-                                <div class="sign-in">
-                                    <div class="login">
+                                  <button>
                                       <a href="{{ route('login') }}" class="login-btn">Login</a>
-                                    </div>
-                            @if (Route::has('register'))
-                                    <div class="sign-up ">
-                                        <a href="{{ route('register') }}" class="register-btn">Register</a>
-                                    </div>
-                            @endif
+                                  </button>
+                                    @if (Route::has('register'))
+                                        <button>
+                                            <a href="{{ route('register') }}" class="register-btn">Register</a>
+                                        </button>
+                                    @endif
                                 </div>
                             @endauth
-                    @endif
+                        @endif
+                    </div>
+
                 </div>
             </div>
         </div>

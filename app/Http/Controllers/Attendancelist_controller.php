@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Models\attendancelist;
@@ -9,8 +8,6 @@ use App\Models\attendancelist;
 
 class attendancelist_controller extends Controller
 {
-    //
-
     public function attendclass(Request $request)
     {
         $ip = $request->ip();
@@ -31,7 +28,12 @@ class attendancelist_controller extends Controller
         $attendancelist->lastname = $request->lastname;
         $attendancelist->indexNumber = $request->index;
         $attendancelist->save();
-        return redirect('/');
+        return redirect('/info');
         // Session::flash('success', 'The data was successfully stored!');
+    }
+
+    public function attendanceList(){
+        $lists = attendancelist::all();
+        return view('attendanceList', compact('lists'));
     }
 }

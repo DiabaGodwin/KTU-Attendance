@@ -43,6 +43,12 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'adminProtectedPages'=>[
+            \App\Http\Middleware\AdminProtectedPages::class,
+        ],
+        'lecturerProtectedPages'=>[
+            \App\Http\Middleware\LecturerProtectedPages::class,
+        ]
     ];
 
     /**

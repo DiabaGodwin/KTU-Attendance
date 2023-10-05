@@ -19,9 +19,7 @@ class RoleController extends Controller
 //        }
 //    }
     public function sideBarRegulator(){
-//        $role= Auth::User()->role;
-//        return $role;
-        $user = Auth::user();
+        $user = auth()->user();
         return view('sidebar', compact('user'));
     }
 }

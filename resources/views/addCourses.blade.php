@@ -9,7 +9,9 @@
                 <h3>ATTENDEE</h3>
             </div>
         </div>
-        <x-sidebar></x-sidebar>
+        <x-sidebar
+            :role="auth()->user()->role">
+        </x-sidebar>
         <x-profile
             :user-name="auth()->user()->name"
         ></x-profile>
