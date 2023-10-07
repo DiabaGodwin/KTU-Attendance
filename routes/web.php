@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PersonalInfoController;
 use App\Http\Controllers\AllUsersPageController;
 use App\Http\Controllers\AnalyticsPageController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,5 +75,8 @@ Route::get('/addCourses', [RoleController::class, 'role']);
 //    });
     Route::get('/analytics', [AnalyticsPageController::class, 'count']);
     Route::get('/attendancelist', [Attendancelist_controller::class, 'attendanceList']);
+
+    //Location route
+    Route::get('showLocation', [LocationController::class, 'showIp']);
 });
 

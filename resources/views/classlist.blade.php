@@ -18,7 +18,7 @@
                 <h5>List of Student</h5>
             </div>
             <div class="table-items">
-                <table class="table m-2">
+                <table class="table m-2 table-stripped table-borderless">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>

@@ -5,30 +5,15 @@
       <div class="qr">
           <div class="qr-section">
               <div class="">
+                  <h1>Helloo{{$user}}</h1>
                 <div class="qr-code" style="height:inherit">
-                    {!! QrCode::size(300)->generate("https://www.youtube.com/watch?v=yzEuC8TWimA") !!}
+                    {!! QrCode::size(500)->generate(
+                    "https://www.youtube.com/watch?v=yzEuC8TWimA"
+
+                    ) !!}
                 </div>
               </div>
           </div>
-        <div class="buttons">
-          <div class="activate">
-              <button class="btn btn-activate">
-                ACTIVATE
-              </button>
-            </div>
-            <div class="deactivate">
-              <button class="btn btn-deactivate" >
-                DEACTIVATE
-              </button>
-            </div>
-            <div class="add-student">
-              <button class="btn btn-student" >
-                <a href="/attendance">
-                  ADD STUDENT
-                </a>
-              </button>
-            </div>
-        </div>
         </div>
       </form>
     </div>

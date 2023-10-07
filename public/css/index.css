@@ -130,7 +130,7 @@ form{
 .graph{
     height: 300px;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: white;
     border-radius: 10px;
 }
 .title{
@@ -141,7 +141,7 @@ form{
     margin-top: 15px;
     height: 300px;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: white;
     border-radius: 10px;
     margin-bottom: 20px;
 }

@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="table-items border-1">
-                    <table class="table ">
+                    <table class="table table-stripped table-borderless ">
                         <thead>
                         <tr>
                             <th scope="col">#</th>

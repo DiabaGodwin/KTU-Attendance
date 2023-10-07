@@ -26,7 +26,9 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Total Users</div>
-                                <div class="h5 mb-0 font-weight-bold text-black-50">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-black-50">
+                                    {{count($users)}}
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -43,7 +45,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Total Students
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-black-50">{{$count}}</div>
+                                <div class="h5 mb-0 font-weight-bold text-black-50">{{ $users->where('role', '0')->count() }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -58,9 +60,9 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Students
+                                    Total Lectures
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-black-50">$40,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-black-50">{{ $users->where('role', '2')->count() }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -74,10 +76,37 @@
             <div class="graph"></div>
             <div class="graph"></div>
         </div>
-        <div class="bar-chart">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="bar-chart">
+                      <canvas id="myChart"></canvas>
+                  </div>
+              </div>
+          </div>
 
-        </div>
-        <div class="" id="myChart"></div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+                const ctx = document.getElementById('myChart');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: [12, 19, 3, 5, 2, 3],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
     </div>
     </div>
 </x-layout>

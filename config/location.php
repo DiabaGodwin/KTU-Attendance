@@ -78,8 +78,8 @@ return [
     'maxmind' => [
         'web' => [
             'enabled' => false,
-            'user_id' => env('MAXMIND_USER_ID'),
-            'license_key' => env('MAXMIND_LICENSE_KEY'),
+            'user_id' => env('MAXMIND_USER_ID','884234'),
+            'license_key' => env('MAXMIND_LICENSE_KEY','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'),
             'options' => ['host' => 'geoip.maxmind.com'],
         ],
 

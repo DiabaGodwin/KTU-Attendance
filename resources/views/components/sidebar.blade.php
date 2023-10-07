@@ -7,7 +7,7 @@
         @if (auth()->check())
             @if(auth()->user()->role === '1')
                 <a class="menu-items" href="{{asset('/info')}}">
-                    <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Personal Info
+                    <img class="icon" src="{{asset('images/personal-Info.png')}}" alt=""> Personal Info
                 </a>
                 <a class="menu-items active" href="{{asset('/home')}}">
                     <img class="icon" src="{{asset('images/home.png')}}" alt=""> Home</a>
@@ -21,20 +21,20 @@
                     <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Analytics
                 </a>
                 <a class="menu-items" href="{{asset('/attendancelist')}}">
-                    <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Attendance List
+                    <img class="icon" src="{{asset('images/attendanceList.png')}}" alt=""> Attendance List
                 </a>
                 @elseif(auth()->user()->role === '0')
                 <a class="menu-items" href="{{asset('/info')}}">
-                    <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Personal Info
+                    <img class="icon" src="{{asset('images/personal-Info.png')}}" alt=""> Personal Info
                 </a>
                 <a class="menu-items" href="{{asset('/classlist')}}">
                     <img class="icon" src="{{asset('images/list.png')}}" alt=""> Classlist</a>
                 @else
                 <a class="menu-items" href="{{asset('/info')}}">
-                    <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Personal Info
+                    <img class="icon" src="{{asset('images/personal-Info.png')}}" alt=""> Personal Info
                 </a>
                 <a class="menu-items" href="{{asset('/allusers')}}">
-                    <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> All Users
+                    <img class="icon" src="{{asset('images/allUsers.png')}}" alt=""> All Users
                 </a>
                 <a class="menu-items" href="{{asset('/classlist')}}">
                     <img class="icon" src="{{asset('images/list.png')}}" alt=""> Classlist</a>

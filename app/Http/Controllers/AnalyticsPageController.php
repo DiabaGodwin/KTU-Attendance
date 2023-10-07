@@ -7,7 +7,7 @@ use App\Models\User;
 class AnalyticsPageController extends Controller
 {
     public function count(){
-        $count = User::where('role','0')->count();
-        return view('analytics', 'count');
+        $users = User::all(); // Retrieve all users
+        return view('analytics', ['users' => $users]);
     }
 }

@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
         // BaconQrCode\ServiceProvider::class,
 
         /*
@@ -208,7 +209,7 @@ return [
     |
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
-    | the aliases are "lazy" loaded so they don't hinder performance.
+    | the aliases are "lazy" loaded, so they don't hinder performance.
     |
     */
 
@@ -216,6 +217,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         // 'QRCode' => BaconQrCode\Facades\QRCode::class,
         'QrCode'=> SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Location' => 'Stevebauman\Location\Facades\Location',
     ])->toArray(),
 
 ];

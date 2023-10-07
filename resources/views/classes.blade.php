@@ -25,7 +25,7 @@
                                 <h4>{{$lesson->courseName}}</h4>
                             </div>
                             <div class="">
-                                <a class="lesson-link" href="/qr-interface">Start</a>
+                                <a class="lesson-link" href="/qr-interface">Generate</a>
                             </div>
                         </div>
                     </div>

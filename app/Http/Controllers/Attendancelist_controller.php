@@ -16,11 +16,12 @@ class attendancelist_controller extends Controller
 
         if (Cache::has($key)) {
             // IP already submitted the form today
-            return response()->json(['error' => 'You have already submitted the form today.']);
+//            return response()->json(['error' => 'You have already submitted the form today.']);
+            return $ip;
         }
 
         // Store the IP in cache for 24 hours
-        Cache::put($key, true, now()->minute(5));
+        Cache::put($key, true, now()->addDay());
 
         // Process form submission
         $attendancelist = new attendancelist();
