@@ -5,13 +5,8 @@
       <div class="qr">
           <div class="qr-section">
               <div class="">
-                  <h1>Helloo{{$user}}</h1>
-                <div class="qr-code" style="height:inherit">
-                    {!! QrCode::size(500)->generate(
-                    "https://www.youtube.com/watch?v=yzEuC8TWimA"
-
-                    ) !!}
-                </div>
+{{--                  <h1>Hell{{$user}}</h1>--}}
+                  <div class="">{{$qrCode}}</div>
               </div>
           </div>
         </div>

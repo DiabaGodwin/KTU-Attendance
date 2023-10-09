@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('classlist', function (Blueprint $table) {
-            $table->id('id');
-            $table->text('firstName');
-            $table->string('lastName');
-            $table->string('program');
-            $table->timestamps();
-        });
-    }
+        Schema::table('courses', function (Blueprint $table) {
+            $table->unique('courseCode');
+        });    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('classlist');
-    }
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropUnique('courses_courseCode_unique');
+        });    }
 };

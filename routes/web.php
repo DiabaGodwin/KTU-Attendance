@@ -37,8 +37,6 @@ Route::middleware([
 
     Route::get('/classlist' ,[Classlist_controller::class, 'showList']);
 
-    Route::get('/classes', [LoadLessonsController::class, 'showLessons']);
-
     Route::post('/attendclass', [Attendancelist_controller::class, 'attendclass']);
 
     Route::get('/attendance', function(){
@@ -62,6 +60,7 @@ Route::get('/addCourses', [RoleController::class, 'role']);
     });
     Route::group(['middleware' => ['lecturerProtectedPages']], function(){
         Route::post('/courses', [AddCourse::class, 'addCourse']);
+        Route::get('/classes', [LoadLessonsController::class, 'showLessons']);
         Route::get('/addCourses' , function(){
             return view('addCourses');
         });

@@ -182,7 +182,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-        Stevebauman\Location\LocationServiceProvider::class,
         // BaconQrCode\ServiceProvider::class,
 
         /*

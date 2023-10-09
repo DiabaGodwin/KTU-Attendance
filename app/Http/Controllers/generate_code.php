@@ -12,14 +12,9 @@ class generate_code extends Controller
     //
     public function generate(Request $req)
     {
-        // $url = 'https://www.example.com';
-        // $qrCode = QrCode::encode($url);
-
-        // header('Content-Type: '.$qrCode->getContentType());
-        // echo $qrCode->getString()
-
+        $url = 'https://www.youtube.com/watch?v=yzEuC8TWimA';
+        $qrCode = QrCode::size(500)->generate($url);
         $user= Auth::User()->name;
-//        return view('qr-interface');
-        return view('qr-interface', compact('user'));
+        return view('qr-interface', compact('user','qrCode'));
     }
 }
