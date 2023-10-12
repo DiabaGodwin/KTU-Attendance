@@ -37,25 +37,24 @@
                                 @elseif(auth()->user()->role =='1')
                                     Lecturer
                                 @else
-                                    Admin
+                                    Administrator
                                 @endif
                             @endif
                         </td>
                     </tr>
-                    <tr>
-                        <th class="text-white">
-                            Department
-                        </th>
-                        <td class="text-white">
-                            Computer Sceince
-                        </td>
-                    </tr>
+
                     <tr>
                         <th class="text-white">
                             Id Number
                         </th>
                         <td class="text-white">
-                            CS 123452
+                            @if (auth()->check())
+                                @if(auth()->user()->role =='0')
+                                    {{ auth()->user()->indexNo }}
+                                @elseif(auth()->user()->role =='1')
+                                    {{ auth()->user()->staffId }}
+                                @endif
+                            @endif
                         </td>
                     </tr>
                     <tr>
@@ -63,15 +62,44 @@
                             Address
                         </th>
                         <td class="text-white">
-                            Adweso Koforidua
+                            {{ $information->address }}
                         </td>
                     </tr>
+
                     <tr>
                         <th class="text-white">
                             Department
                         </th>
                         <td class="text-white">
-                            Computer Sceince
+                            {{ auth()->user()->department }}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th class="text-white">
+                            Faculty
+                        </th>
+                        <td class="text-white">
+                            {{ auth()->user()->faculty }}
+                        </td>
+                    </tr>
+                    @if(auth()->user()->role = 0 )
+                    <tr>
+                        <th class="text-white">
+                            Program
+                        </th>
+                        <td class="text-white">
+                            {{ auth()->user()->program }}
+                        </td>
+                    </tr>
+
+                    @endif
+                    <tr>
+                        <th class="text-white">
+                            Phone
+                        </th>
+                        <td class="text-white">
+                            {{ auth()->user()->phone }}
                         </td>
                     </tr>
                 </table>

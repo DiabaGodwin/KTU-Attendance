@@ -41,6 +41,9 @@
                 <a class="menu-items" href="{{asset('/analytics')}}">
                     <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Analytics
                 </a>
+                <a class="menu-items" href="{{asset('')}}">
+                    <img class="icon" src="{{asset('images/analytics.png')}}" alt=""> Add User
+                </a>
 
             @endif
         @endif

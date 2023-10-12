@@ -198,6 +198,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Torann\GeoIP\GeoIPServiceProvider::class,
 
     ],
 
@@ -217,6 +218,7 @@ return [
         // 'QRCode' => BaconQrCode\Facades\QRCode::class,
         'QrCode'=> SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Location' => 'Stevebauman\Location\Facades\Location',
+        'GeoIP' => Torann\GeoIP\Facades\GeoIP::class,
     ])->toArray(),
 
 ];

@@ -10,6 +10,10 @@ use App\Http\Controllers\PersonalInfoController;
 use App\Http\Controllers\AllUsersPageController;
 use App\Http\Controllers\AnalyticsPageController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\AddLecturerController;
+use App\Http\Controllers\AddStudentController;
+use App\Http\Controllers\UsersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +29,8 @@ use App\Http\Controllers\LocationController;
 Route::get('/', function (){
     return view('welcome');
 });
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -69,13 +75,19 @@ Route::get('/addCourses', [RoleController::class, 'role']);
         });
     });
 
-//    Route::get('/analytics' , function(){
-//        return view('analytics');
-//    });
+
     Route::get('/analytics', [AnalyticsPageController::class, 'count']);
     Route::get('/attendancelist', [Attendancelist_controller::class, 'attendanceList']);
 
     //Location route
     Route::get('showLocation', [LocationController::class, 'showIp']);
+    Route::post('/attend', [generate_code::class, 'generate']);
+
+    Route::post('/addlecture', [AddLecturerController::class, 'addLecturer']);
+    Route::post('/addStudent', [AddStudentController::class, 'addStudent']);
+
+    Route::get('/search/users', [UsersController::class,'search']);
+    Route::get('/search', [AllUsersPageController::class,'search']);
+
 });
 

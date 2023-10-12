@@ -29,6 +29,14 @@
                             </div>
                         </div>
                     </div>
+{{--                <h3>{{$lecturers->faculty}}</h3>--}}
+                    <form action="/attend">
+{{--                        <input type="hidden" name="lecturerid" value="{{$lecturers->staffId}}">--}}
+                        <input type="hidden" name="coursecode" value="{{$lesson->courseCode}}">
+                        <input type="hidden" name="classname" value="{{$lesson->className}}">
+                        <input type="text" name="coursename" value="{{$lesson->courseName}}">
+                        <button type="submit">Generate</button>
+                    </form>
             @endforeach
             </div>
     </div>

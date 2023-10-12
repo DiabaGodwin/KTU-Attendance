@@ -34,11 +34,11 @@
                                   <button>
                                       <a href="{{ route('login') }}" class="login-btn">Login</a>
                                   </button>
-                                    @if (Route::has('register'))
-                                        <button>
-                                            <a href="{{ route('register') }}" class="register-btn">Register</a>
-                                        </button>
-                                    @endif
+{{--                                    @if (Route::has('register'))--}}
+{{--                                        <button>--}}
+{{--                                            <a href="{{ route('register') }}" class="register-btn">Register</a>--}}
+{{--                                        </button>--}}
+{{--                                    @endif--}}
                                 </div>
                             @endauth
                         @endif

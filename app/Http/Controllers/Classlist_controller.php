@@ -2,14 +2,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Classlist;
+use App\Models\classlist;
 
 
 class Classlist_controller extends Controller
 {
     //
     public function showList(){
-        $lists = Classlist::all();
-        return view('/classlist', compact('lists'));
+        $lists = classlist::all();
+//        return view('/classlist', compact('lists'));
+        return view('/classlist');
     }
 }

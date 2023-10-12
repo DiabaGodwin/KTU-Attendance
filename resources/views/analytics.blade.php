@@ -102,7 +102,10 @@
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total Attendance
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-black-50">{{ count($attendance) }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-black-50">
+{{--                                            {{ count($attendance) }}--}}
+                                            99
+                                        </div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-calendar fa-2x text-gray-300"></i>

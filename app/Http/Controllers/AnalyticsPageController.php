@@ -11,8 +11,8 @@ class AnalyticsPageController extends Controller
 {
     public function count(){
         $users = User::all(); // Retrieve all users
-        $students = classlist::all();
-        $attendance = attendancelist::all();
-        return view('analytics', ['users' => $users, 'students'=> $students ,'attendance'=> $attendance]);
+//        $students = classlist::all();
+//        $attendance = attendancelist::all();
+        return view('analytics', ['users' => $users]);
     }
 }
