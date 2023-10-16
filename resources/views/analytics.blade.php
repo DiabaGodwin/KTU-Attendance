@@ -135,9 +135,36 @@
             @endif
         @endif
 
-        <div class="big-graphs">
-            <div class="graph"></div>
-            <div class="graph"></div>
+        <div class="row justify-content-center d-flex">
+            <div class="col all-programs mt-3">
+                <div class="d-flex programs justify-content-center text-dark">
+                    <h5>PROGRAMS</h5>
+                </div>
+                <div class="scrollable-div ">
+                    <table id="programs" class="table table-striped table-borderless text-dark">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Program</th>
+                            <th>Faculty</th>
+                            <th>Department</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($programs as $program)
+                            <tr>
+                                <td>{{$program->id}}</td>
+                                <td>{{$program->program}}</td>
+                                <td>{{$program->facultyCode}}</td>
+                                <td>{{$program->departmentCode}}</td>
+
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+{{--            <div class="graph"></div>--}}
         </div>
           <div class="row">
               <div class="col-md-12">

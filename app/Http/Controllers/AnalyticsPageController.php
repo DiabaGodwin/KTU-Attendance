@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\classlist;
 use App\Models\attendancelist;
+use App\Models\Program;
 
 
 class AnalyticsPageController extends Controller
@@ -13,6 +14,9 @@ class AnalyticsPageController extends Controller
         $users = User::all(); // Retrieve all users
 //        $students = classlist::all();
 //        $attendance = attendancelist::all();
-        return view('analytics', ['users' => $users]);
+        $programs = Program::all();
+        return view('analytics', ['users' => $users],['programs'=> $programs]);
     }
+
+
 }

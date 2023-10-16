@@ -13,6 +13,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AddLecturerController;
 use App\Http\Controllers\AddStudentController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FacultyController;
 
 
 /*
@@ -83,11 +84,12 @@ Route::get('/addCourses', [RoleController::class, 'role']);
     Route::get('showLocation', [LocationController::class, 'showIp']);
     Route::post('/attend', [generate_code::class, 'generate']);
 
-    Route::post('/addlecture', [AddLecturerController::class, 'addLecturer']);
+//    Route::post('/addlecture', [AddLecturerController::class, 'addLecturer']);
     Route::post('/addStudent', [AddStudentController::class, 'addStudent']);
 
     Route::get('/search/users', [UsersController::class,'search']);
     Route::get('/search', [AllUsersPageController::class,'search']);
 
+    Route::get('faculty', [FacultyController::class , 'allfaculty']);
 });
 

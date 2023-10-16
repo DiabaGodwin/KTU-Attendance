@@ -13,14 +13,7 @@
             :role="auth()->user()->role">
         </x-sidebar>
         <div class="user-info table-div">
-            <div class="">
-                <h3>
-                    @if (auth()->check())
-                        Welcome {{ auth()->user()->name }}
-                    @endif
-                </h3>
-            </div>
-            <div class="container d-flex w-75 justify-content-lg-around">
+            <div class="container d-flex w-75 justify-content-lg-around mb-5">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                     Add Lecturer
                 </button>
@@ -28,38 +21,6 @@
                     Add Student
                 </button>
             </div>
-{{--live search input--}}
-            <div class="container d-flex justify-content-center mt-2 ">
-                <div class="search">
-                    <input type="search" name="search" id="search" placeholder="Search for something" class="w-75 noroundBorders form-control">
-                </div>
-            </div>
-{{--            Search Bar--}}
-            <form action="/search/users" method="GET" class="d-flex w-75 mt-3" role="search">
-                <select name="column" class="form-select w-25" aria-label="Search By">
-                    <option value="name">Name</option>
-                    <option value="studentId">Student ID</option>
-                    <option value="staffId">Staff ID</option>
-                    <option value="email">Email</option>
-                    <!-- Add other columns as needed -->
-                </select>
-                <input class="form-control me-2 noroundBorders" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-{{--            End search bar--}}
-
-{{--            <div class="">--}}
-{{--                @if($users->isEmpty())--}}
-{{--                    <p>No user Found</p>--}}
-{{--                @else--}}
-{{--                    @foreach($users as $use)--}}
-{{--                        <p>Name:{{$use->staffId}}</p>--}}
-{{--                    @endforeach--}}
-{{--                @endif--}}
-{{--            </div>--}}
-
-
-            {{--            Add Leturer Modal--}}
             <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content bg-gray-600">
@@ -85,20 +46,17 @@
                                     <div class="col-md-4">
                                         <lable>Department</lable>
                                         <select name="department" class="form-select">
-                                            <option value="Computer Science">Computer Science</option>
-                                            <option value="Mechanical">Mechanical</option>
-                                            <option value="Automotive">Automotive</option>
-                                            <!-- Add other columns as needed -->
+                                            @foreach($departments as $department)
+                                                <option value="{{$department->departmentName}}">{{$department->departmentName}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Faculty</label>
                                         <select name="faculty" class="form-select">
-                                            <option value="FAST">FAST</option>
-                                            <option value="FOE">FOE</option>
-                                            <option value="FBNE">FBNE</option>
-                                            <option value="FBMS">FBMS</option>
-                                            <option value="FHAS">FHAS</option>
+                                            @foreach($faculties as $faculty)
+                                                <option value="{{$faculty->facultyName}}">{{$faculty->facultyName}}</option>
+                                            @endforeach
                                             <!-- Add other columns as needed -->
                                         </select>
                                     </div>
@@ -155,11 +113,19 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label>Department</label>
-                                        <input type="text" name="department" class="form-control noroundBorders">
+                                        <select name="department" class="form-select">
+                                            @foreach($departments as $department)
+                                                <option value="{{$department->departmentName}}">{{$department->departmentName}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Faculty</label>
-                                        <input type="text" name="faculty" class="form-control noroundBorders">
+                                        <select name="faculty" class="form-select">
+                                            @foreach($faculties as $faculty)
+                                                <option value="{{$faculty->facultyName}}">{{$faculty->facultyName}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Phone</label>
@@ -181,6 +147,16 @@
                                         <label>Address</label>
                                         <input type="text" name="address" class="form-control noroundBorders">
                                     </div>
+                                    <div class="col-md-4">
+                                        <label>Level</label>
+                                        <select name="level" id="" class="form-select">
+                                            <option value="100">100</option>
+                                            <option value="200">200</option>
+                                            <option value="300">300</option>
+                                            <option value="400">400</option>
+
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -192,30 +168,28 @@
                 </div>
             </div>
             <div class="table-div">
-                <div class="table-overlap">
-                    <h5>List Of All Users</h5>
-                </div>
+{{--                <div class="table-overlap">--}}
+{{--                    <h5>List Of All Users</h5>--}}
+{{--                </div>--}}
+                <div class="table-items border-1 mt-10 p-4">
 
-                <div class="table-items border-1">
-                    <table class="table table-striped table-borderless text-white">
+                    <table id="example" class="table table-striped table-borderless text-white">
                         <thead>
-                        <tbody class="alldata">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Delete</th>
-                            <th scope="col">Change Role</th>
-                        </tr>
-                        </thead>
-
-                        @foreach($users as $user)
-
                             <tr>
-                                <th scope="row">{{ $counter++ }}</th>
-                                <td>{{ $user->name }}</td>
-                                <td>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Edit User</th>
+                            </tr>
+                        </thead>
+                        <tbody class="alldata text-white">
+                            @foreach($users as $user)
+                            <tr>
+                                <td class="text-white" scope="row">{{ $counter++ }}</td>
+                                <td class="text-white">{{ $user->name }}</td>
+                                <td class="text-white">
                                     @if($user->role=="0")
                                         Student
                                     @elseif($user->role=="1")
@@ -224,43 +198,22 @@
                                         Admin
                                     @endif
                                 </td>
-                                <td>{{ $user->email }}</td>
+                                <td class="text-white">{{ $user->email }}</td>
+                                <td class="text-white">
+                                    <a href="{{}}" class="btn btn-danger" type="submit">Delete Account</a>
+                                </td>
                                 <td>
-                                    <button class="btn btn-primary" type="submit">Delete Account</button>                            </td>
-                                <td>
-                                    <button class="btn btn-primary" type="submit">Change Role</button>
+                                    <button class="btn btn-primary" type="submit">Edit</button>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
-                        <tbody id="Content" class="searchdata"> </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
-    <script type="text/javascript">
-        $('#search').on('keyup', function()
-        {
-            $value =$(this).val();
-            if($value){
-                $('.alldata').hide();
-                $('.searchdata').show();
-            }
-            else{
-                $('.alldata').show();
-                $('.searchdata').hide();
-            }
-            $.ajax({
-                type:'get',
-                url:'{{URL::to('search')}}',
-                data:{'search':$value},
-                success:function(data){
-                    console.log(data);
-                    $('#Content').html(data);
-                }
-            });
-        })
+    <script>
+        new DataTable('#example');
     </script>
 </x-layout>

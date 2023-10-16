@@ -119,17 +119,7 @@ form{
     background-color: var(--primary-color);
 }
 
-.big-graphs{
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    column-gap: 10px;
-}
-
-.graph{
-    height: 300px;
-    width: 100%;
+.all-programs{
     background-color: white;
     border-radius: 10px;
 }
@@ -341,7 +331,7 @@ h4{
 
 .btn{
     height: 35px;
-    background-color: var(--primary-color)!important;
+    /*background-color: var(--primary-color)!important;*/
     border-radius: 8px;
     color: white;
     font-size: 16px;
@@ -389,6 +379,7 @@ h4{
     transition: 0.5s;
     z-index: 1000;
     font-family: var(--body-font);
+    font-size: 16px;
 }
 
 .side-logo{
@@ -467,7 +458,7 @@ h4{
     margin-bottom: 5px;
 }
 .menu-items{
-    font-size: 20px;
+    font-size: 16px;
     height: 30px;
     width: 90%;
     border-radius: 7px;
@@ -533,7 +524,9 @@ h4{
     border-radius: 5px !important;
     outline: var(--bg-200);
 }
-
+.lect-bg{
+    background-color: #4f4b4b;
+}
 
 /*media queries*/
 @media (min-width:700px){
@@ -553,6 +546,12 @@ h4{
     .close-btn {
         display: none;
     }
+}
+.myborder{
+    border: 2px solid red;
+}
+.btn-width{
+    width: 80px!important;
 }
 
 @media (max-width: 768px) {

@@ -66,23 +66,32 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <th class="text-white">
-                            Department
-                        </th>
-                        <td class="text-white">
-                            {{ auth()->user()->department }}
-                        </td>
-                    </tr>
+                    @if (auth()->check())
+                        @if(auth()->user()->role =='0' || auth()->user()->role=='1')
+                            <tr>
+                                <th class="text-white">
+                                    Department
+                                </th>
+                                <td class="text-white">
+                                    {{ auth()->user()->department }}
+                                </td>
+                            </tr>
+                        @endif
+                    @endif
 
-                    <tr>
-                        <th class="text-white">
-                            Faculty
-                        </th>
-                        <td class="text-white">
-                            {{ auth()->user()->faculty }}
-                        </td>
-                    </tr>
+                    @if (auth()->check())
+                        @if(auth()->user()->role =='0' || auth()->user()->role=='1')
+                            <tr>
+                                <th class="text-white">
+                                   Faculty
+                                </th>
+                                <td class="text-white">
+                                    {{ auth()->user()->faculty }}
+                                </td>
+                            </tr>
+                        @endif
+                    @endif
+
                     @if(auth()->user()->role = 0 )
                     <tr>
                         <th class="text-white">

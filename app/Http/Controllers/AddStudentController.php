@@ -17,7 +17,9 @@ class AddStudentController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'address' => 'required',
-            'program' => 'required'
+            'program' => 'required',
+            'level' => 'required',
+
         ]);
 
         $user = new User();
@@ -30,8 +32,9 @@ class AddStudentController extends Controller
         $user->password = bcrypt($req->input('password')); // Hash the password
         $user->address = $req->input('address');
         $user->program = $req->input('program');
-        $user->role = '1';
+        $user->level = $req->input('level');
 
+        $user->role = '1';
         $user->save();
         return redirect('allusers');
     }

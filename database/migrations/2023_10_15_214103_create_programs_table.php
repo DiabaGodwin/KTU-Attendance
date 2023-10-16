@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('programName');
-            $table->string('facultyName');
-            $table->string('departmentName');
+            $table->string('program');
+            $table->string('facultyCode');
+            $table->string('departmentCode');
             $table->timestamps();
         });
     }

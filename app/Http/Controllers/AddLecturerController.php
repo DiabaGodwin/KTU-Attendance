@@ -19,7 +19,6 @@ class AddLecturerController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'address' => 'required',
-//            'role' => 'required',
         ]);
 
         // Create a new User instance and set its properties
@@ -28,10 +27,6 @@ class AddLecturerController extends Controller
         $user->staffId = $req->input('staffId');
         $user->department = $req->input('department');
         $user->faculty = $req->input('faculty');
-//        if( $facultyRequest = 'FAST'){
-//            $fast = 'Faculty of Applied Science and Technology';
-//            $fast = $user->faculty;
-//        }
         $user->phone = $req->input('phone');
         $user->email = $req->input('email');
         $user->password = bcrypt($req->input('password')); // Hash the password
