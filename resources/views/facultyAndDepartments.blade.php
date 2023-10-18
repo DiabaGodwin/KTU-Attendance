@@ -73,12 +73,51 @@
                         </thead>
                         <tbody>
                         @foreach($departments as $department)
-                            <tr>
-                                <td>{{$department->id}}</td>
-                                <td>{{$department->departmentCode}}</td>
-                                <td>{{$department->departmentName}}</td>
-                                <td>{{$department->facultyCode}}</td>
-                                <td>{{$department->departmentHod}}</td>
+                            <tr class="text-white">
+                                <td class="text-white">{{$department->id}}</td>
+                                <td class="text-white">{{$department->departmentCode}}</td>
+                                <td class="text-white">{{$department->departmentName}}</td>
+                                <td class="text-white">{{$department->facultyCode}}</td>
+                                <td class="text-white">{{$department->departmentHod}}</td>
+                                <td>
+                                    <a href="" class="btn btn-danger btn-width">Delete</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-primary btn-width">Update</a>
+                                </td>
+                            </tr>
+
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row  mt-3 w-100">
+                <div class="col lect-bg">
+                    <div class="d-flex justify-content-center">
+                        <h5>ALL COURSES</h5>
+                    </div>
+                    <table class="table table-striped table-borderless" id="courses">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Program</th>
+                            <th>Department</th>
+                            <th>Delete</th>
+                            <th>Update</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($courses as $course)
+                            <tr class="text-white">
+                                <td class="text-white">{{$counter++}}</td>
+                                <td class="text-white">{{$course->courseCode}}</td>
+                                <td class="text-white">{{$course->courseName}}</td>
+                                <td class="text-white">{{$course->program}}</td>
+                                <td class="text-white">{{$course->departmentCode}}</td>
                                 <td>
                                     <a href="" class="btn btn-danger btn-width">Delete</a>
                                 </td>

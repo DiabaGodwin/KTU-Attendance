@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('indexNo');
-            $table->foreign('indexNo')->references('indexNo')->on('students');
             $table->string('courseCode');
-            $table->foreign('courseCode')->references('courseCode')->on('courses');
-            $table->string('lecturersId');
-            $table->foreign('lecturersId')->references('staffId')->on('lecturers');
-            $table->string('className');
+            $table->string('staffId');
+            $table->string('studentId');
+            $table->string('venue');
             $table->timestamps();
+
+            $table->foreign('staffId')->references('staffId')->on('users')->onDelete('cascade');
+            $table->foreign('studentId')->references('studentId')->on('users')->onDelete('cascade');
         });
     }
 

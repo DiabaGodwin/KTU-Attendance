@@ -13,11 +13,11 @@
             :role="auth()->user()->role">
         </x-sidebar>
         <div class="user-info table-div">
-            <div class="container d-flex w-75 justify-content-lg-around mb-5">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            <div class=" d-flex  mb-2">
+                <button type="button" class="btn btn-primary mr-3" data-toggle="modal" data-target="#myModal">
                     Add Lecturer
                 </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLecturer">
+                <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#addLecturer">
                     Add Student
                 </button>
             </div>
@@ -65,8 +65,8 @@
                                         <input type="tel" name="phone" class="form-control noroundBorders">
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Email</label>
-                                        <input type="text" name="email" class="form-control noroundBorders">
+                                   il</label>
+                                        <label>Ema<input type="text" name="email" class="form-control noroundBorders">
                                     </div>
                                     <div class="col-md-4">
                                         <label>Password</label>
@@ -133,7 +133,11 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label>Program</label>
-                                        <input type="text" name="program" class="form-control noroundBorders">
+                                        <select name="program" class="form-select">
+                                            @foreach($programs as $program)
+                                                <option value="{{$program->program}}">{{$program->program}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
                                         <label>Email</label>
@@ -167,18 +171,18 @@
                     </div>
                 </div>
             </div>
-            <div class="table-div">
-{{--                <div class="table-overlap">--}}
-{{--                    <h5>List Of All Users</h5>--}}
-{{--                </div>--}}
-                <div class="table-items border-1 mt-10 p-4">
-
+            <div class="table-items w-100">
+                <div class="d-flex justify-content-center">
+                    <h5>ALL USERS</h5>
+                </div>
+                <div class=" border-1 mt-10 p-3 w-100">
                     <table id="example" class="table table-striped table-borderless text-white">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Role</th>
+                                <th scope="col">Id</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Delete</th>
                                 <th scope="col">Edit User</th>
@@ -198,12 +202,21 @@
                                         Admin
                                     @endif
                                 </td>
+                                <td class="text-white">
+                                    @if($user->role=="0")
+                                        {{$user->studentId}}
+                                    @elseif($user->role=="1")
+                                        {{$user->staffId}}
+                                    @else
+                                        xxxxx
+                                    @endif
+                                </td>
                                 <td class="text-white">{{ $user->email }}</td>
                                 <td class="text-white">
-                                    <a href="{{}}" class="btn btn-danger" type="submit">Delete Account</a>
+                                    <a href="{{url('/delete/'.$user->id)}}" onclick="confirmation(events)" class="btn btn-danger btn-width" type="submit">Delete</a>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                    <a href="{{url('editUser/'.$user->id)}}" class="btn btn-primary btn-width" type="submit">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -213,7 +226,24 @@
             </div>
         </div>
     </div>
-    <script>
-        new DataTable('#example');
+    <script src="">
+        function confirmation(ev){
+            ev.preventDefault();
+            let urlToRedirect= ev.currentTarget.getAttribute('href');
+            console.log(urlToRedirect);
+            swal({
+                title:"Are you sure you want to delete this?",
+                text:"You won't be able to revert this",
+                icon:"warning",
+                buttons:true,
+                dangerMode:true,
+            })
+                .then((willCancel)=>
+            {
+                if(willCancel){
+                    window.location.href=urlToRedirect;
+                }
+            });
+        }
     </script>
 </x-layout>

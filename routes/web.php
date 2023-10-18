@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisteredCoursesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AddCourse;
 use App\Http\Controllers\Attendancelist_controller;
@@ -14,6 +15,7 @@ use App\Http\Controllers\AddLecturerController;
 use App\Http\Controllers\AddStudentController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\AttendanceManagerController;
 
 
 /*
@@ -42,9 +44,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/classlist' ,[Classlist_controller::class, 'showList']);
 
-    Route::post('/attendclass', [Attendancelist_controller::class, 'attendclass']);
+//    Route::post('/attendclass', [Attendancelist_controller::class, 'attendclass']);
 
     Route::get('/attendance', function(){
         return view('atteanceform');
@@ -55,7 +56,7 @@ Route::middleware([
     Route::get('/chart', function (){
         return view('webchart');
     });
-Route::get('/addCourses', [RoleController::class, 'role']);
+//    Route::get('/ourses', [RoleController::class, 'role']);
 
     Route::get('/sidebar',[RoleController::class,'sideBarRegulator']);
 
@@ -64,9 +65,12 @@ Route::get('/addCourses', [RoleController::class, 'role']);
     Route::group(['middleware' => ['adminProtectedPages']], function(){
         Route::get('/allusers', [AllUsersPageController::class, 'alluser']);
 
+        Route::post('/addlecture', [AddLecturerController::class, 'addLecturer']);
+        Route::post('/addStudent', [AddStudentController::class, 'addStudent']);
+
     });
     Route::group(['middleware' => ['lecturerProtectedPages']], function(){
-        Route::post('/courses', [AddCourse::class, 'addCourse']);
+        Route::post('/registerCourse', [AddCourse::class, 'registerCourses']);
         Route::get('/classes', [LoadLessonsController::class, 'showLessons']);
         Route::get('/addCourses' , function(){
             return view('addCourses');
@@ -75,8 +79,7 @@ Route::get('/addCourses', [RoleController::class, 'role']);
             return view('home');
         });
     });
-
-
+    Route::get('/courses',[AddCourse::class, 'registeredCourses']);
     Route::get('/analytics', [AnalyticsPageController::class, 'count']);
     Route::get('/attendancelist', [Attendancelist_controller::class, 'attendanceList']);
 
@@ -84,12 +87,23 @@ Route::get('/addCourses', [RoleController::class, 'role']);
     Route::get('showLocation', [LocationController::class, 'showIp']);
     Route::post('/attend', [generate_code::class, 'generate']);
 
-//    Route::post('/addlecture', [AddLecturerController::class, 'addLecturer']);
+    Route::post('/addlecture', [AddLecturerController::class, 'addLecturer']);
     Route::post('/addStudent', [AddStudentController::class, 'addStudent']);
 
-    Route::get('/search/users', [UsersController::class,'search']);
-    Route::get('/search', [AllUsersPageController::class,'search']);
+//    Route::get('/search/users', [UsersController::class,'search']);
+//    Route::get('/search', [AllUsersPageController::class,'search']);
 
     Route::get('faculty', [FacultyController::class , 'allfaculty']);
+    Route::get('delete/{id}', [AllUsersPageController::class, 'delete']);
+    Route::get('/studentAttendance', [AttendanceManagerController::class, 'studentAttendance']);
+
+
+    Route::get('editUser/{id}', [AllUsersPageController::class, 'edit']);
+    Route::put('updateUser/{id}', [AllUsersPageController::class, 'update'] );
+//    Route::get('/registered', [RegisteredCoursesController::class, 'registerdList']);
+    Route::get('/courseReg', [RegisteredCoursesController::class, 'registerdList']);
+    Route::get('/studentLogs', [AttendanceManagerController::class, 'studentAttendanceLogs']);
+
+    Route::get('/attendanceForm', [AttendanceManagerController::class, 'attendClass']);
 });
 

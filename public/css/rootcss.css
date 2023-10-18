@@ -1,3 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*:root{*/
+/*    !* ===== Colors ===== *!*/
+/*    --body-color: #E4E9F7;*/
+/*    --sidebar-color: #FFF;*/
+/*    --primary-color: #695CFE;*/
+/*    --primary-color-light: #F6F5FF;*/
+/*    --toggle-color: #DDD;*/
+/*    --text-color: #707070;*/
+/*    !* ====== Transition ====== *!*/
+/*    --tran-03: all 0.2s ease;*/
+/*    --tran-03: all 0.3s ease;*/
+/*    --tran-04: all 0.3s ease;*/
+/*    --tran-05: all 0.3s ease;*/
+/*}*/
 :root{
     --primary-color:#0085ff;
     --accent-color: #006fff;
@@ -10,4 +30,13 @@
     --primary-300:#e0ffff;
     --accent-200:#e1ffff;
     --text-200:#9e9e9e;
+
+    --sidebar-color: #FFF;
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+    --toggle-color: #DDD;
 }
+
+

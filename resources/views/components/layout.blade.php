@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
     <script src="{{ mix('js/chart.js') }}"></script>
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
+
 
 {{--    datatable links--}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
@@ -31,7 +33,13 @@
         new DataTable('#example');
         new DataTable('#faculty');
         new DataTable('#programs');
-        new DataTables('#depart');
+        new DataTable('#depart');
+        new DataTable('#attendance')
+        new DataTable('#student')
+        new DataTable('#registered')
+        new DataTable('#studentlog')
+        new DataTable('#courses')
+
     </script>
 </body>
 </html>

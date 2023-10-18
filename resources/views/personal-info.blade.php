@@ -16,7 +16,7 @@
         ></x-profile>
         <div class="user-info">
             <div class="">
-                Personal Infomation
+                <h4>Personal Infomation</h4>
             </div>
             <div class="personal-info">
                 <table class="table table-items table-striped table-borderless" >
@@ -50,7 +50,7 @@
                         <td class="text-white">
                             @if (auth()->check())
                                 @if(auth()->user()->role =='0')
-                                    {{ auth()->user()->indexNo }}
+                                    {{ auth()->user()->studentId }}
                                 @elseif(auth()->user()->role =='1')
                                     {{ auth()->user()->staffId }}
                                 @endif
@@ -115,5 +115,6 @@
 
             </div>
         </div>
+
     </div>
 </x-layout>

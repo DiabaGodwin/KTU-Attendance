@@ -2,15 +2,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\classlist;
+use App\Models\User;
 
 
 class Classlist_controller extends Controller
 {
-    //
     public function showList(){
-        $lists = classlist::all();
-//        return view('/classlist', compact('lists'));
-        return view('/classlist');
+       $role = '0';
+        $students = User::where('role', $role)->get();
+        $counter = 1;
+        return view('/classlist', compact('students', 'counter'));
     }
 }

@@ -37,6 +37,21 @@ class AddStudentController extends Controller
         $user->role = '1';
         $user->save();
         return redirect('allusers');
+
+//        $user = User::create([
+//            'name' => $req->input('name'),
+//            'studentId' => $req->input('studentId'),
+//            'department' => $req->input('department'),
+//            'faculty' => $req->input('faculty'),
+//            'phone' => $req->input('phone'),
+//            'email' => $req->input('email'),
+//            'password' => bcrypt($req->input('password')),
+//            'address' => $req->input('address'),
+//            'program' => $req->input('program'),
+//            'level' => $req->input('level'),
+//            'role' => '1',
+//        ]);
+//        return redirect('allusers');
     }
 
 }

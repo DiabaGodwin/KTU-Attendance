@@ -135,12 +135,14 @@
             @endif
         @endif
 
-        <div class="row justify-content-center d-flex">
-            <div class="col all-programs mt-3">
+        <div class=" d-flex ">
+
+            <div class="col all-programs mt-3 p-3">
+                @if(auth()->user()->role == '2')
                 <div class="d-flex programs justify-content-center text-dark">
                     <h5>PROGRAMS</h5>
                 </div>
-                <div class="scrollable-div ">
+                <div class="">
                     <table id="programs" class="table table-striped table-borderless text-dark">
                         <thead>
                         <tr>
@@ -148,6 +150,8 @@
                             <th>Program</th>
                             <th>Faculty</th>
                             <th>Department</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -157,18 +161,27 @@
                                 <td>{{$program->program}}</td>
                                 <td>{{$program->facultyCode}}</td>
                                 <td>{{$program->departmentCode}}</td>
-
+                                <td>
+                                    <a href="" class="btn btn-danger btn-width">Delete</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-primary btn-width">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
+                @elseif(auth()->user()->role == '1')
+                    <h3 class="text-dark" > Display Attendance</h3>
+                @endif
             </div>
+
 {{--            <div class="graph"></div>--}}
         </div>
           <div class="row">
-              <div class="col-md-12">
-                  <div class="bar-chart">
+              <div class="col-12">
+                  <div class="bar-chart w-100">
                       <canvas id="myChart"></canvas>
                   </div>
               </div>
@@ -181,10 +194,10 @@
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        labels: ['Programs', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Green', 'Purple', 'Orange'],
                         datasets: [{
                             label: '# of Votes',
-                            data: [12, 19, 3, 5, 2, 3],
+                            data: [{{count($programs)}}, 1, 1, 1, 1, 1, 1,1,1],
                             borderWidth: 1
                         }]
                     },

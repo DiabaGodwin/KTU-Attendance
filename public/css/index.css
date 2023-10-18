@@ -94,7 +94,7 @@ body{
     color: var(--accent-color);
 }
 
-.form-control{
+.myform-control{
     border-radius: 40px!important;
     border: 2px solid var(--primary-color)!important;
     height: 40px;

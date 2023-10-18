@@ -13,15 +13,10 @@ class generate_code extends Controller
     //
     public function generate(Request $req)
     {
-//        $attendance = new Attendance();
-//        $attendance->courseCode = $req->coursecode;
-//        $attendance->className = $req->classname;
-//        $attendance->courseName = $req->coursename;
-//        $attendance->save();
 
-        $url = 'https://www.youtube.com/watch?v=yzEuC8TWimA';
-        $qrCode = QrCode::size(500)->generate($url);
+        $url = 'https://www.codingnepalweb.com/sidebar-menu-in-html-css-javascript-dark-light-mode/';
         $user= Auth::User()->name;
+        $qrCode = QrCode::size(500)->generate($url);
         return view('qr-interface', compact('user','qrCode'));
     }
 }
